@@ -2,30 +2,33 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import validator from 'validator';
+
+// Actions
 import { startGoogleLogin, startLoginEmailPassword } from '../../actions/auth';
-import { useForm } from '../../hooks/useForm';
 import { removeError, setError } from '../../actions/ui';
 
-export const LoginScreen = () => {
+// Hooks
+import { useForm } from '../../hooks/useForm';
 
+export const LoginScreen = () => {
   const dispatch = useDispatch();
   const { loading } = useSelector( state => state.ui );
   const { msgError } = useSelector ( state => state.ui );
   
   const [ formValues, handleInputChange, ] = useForm({
-    email: 'papito@gmail.com',
-    password: '123456'
+    email: 'pingestudio@gmail.com',
+    password: 'Charly098'
   });
   
   const { email, password } = formValues;
 
   const handleLogin = (e) => {
     e.preventDefault();
-    dispatch( startLoginEmailPassword( email, password ) )
     if( isFormValid() ){
       console.log( 'Formulario Correcto' );
-    };
-};
+      dispatch( startLoginEmailPassword( email, password ) );
+    }
+  };
   
 
   const isFormValid = () => {

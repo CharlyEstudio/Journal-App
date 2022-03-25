@@ -5,8 +5,9 @@ import { JournalEntries } from './JournalEntries';
 
 export const Sidebar = () => {
     const dispatch = useDispatch();
+
     const handleLogout = () => {
-        dispatch( startLogout() )
+        dispatch( startLogout() );
     }
   return (
     <aside className='journal__sidebar'>

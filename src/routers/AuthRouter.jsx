@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
+
+// Components
 import { LoginScreen } from '../components/auth/LoginScreen';
 import { RegistrerScreen } from '../components/auth/RegistrerScreen';
 
@@ -8,14 +10,11 @@ export const AuthRouter = () => {
         <>
             <div className='auth__main'>
                 <div className='auth__box-container'>
-                <Routes>
-                    <Route path='login' element={ <LoginScreen /> } />
-
-                    <Route path='regis' element={ <RegistrerScreen /> } />
-
-                    <Route path='*' element={<LoginScreen />} />   
-                    
-                </Routes>
+                    <Routes>
+                        <Route path='login' element={ <LoginScreen /> } />
+                        <Route path='regis' element={ <RegistrerScreen /> } />
+                        <Route path='*' element={<LoginScreen />} />
+                    </Routes>
                 </div>
             </div>
         </>

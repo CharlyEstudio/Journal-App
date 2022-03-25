@@ -1,15 +1,17 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase-config';
+
+// Types
 import { types } from '../types/types';
+
+// UI
 import { finishLoading, startLoading } from './ui';
 
 export const startLoginEmailPassword= ( email, password ) => {
     return ( dispatch ) => {
         dispatch( startLoading() );
-        console.log(email,password);
         firebase.auth().signInWithEmailAndPassword( email, password )
         .then( ( { user } ) => {
             dispatch( login( user.uid, user.displayName ) );
-            console.log(user);
             dispatch( finishLoading () );
         })
         .catch( e => {
@@ -18,6 +20,7 @@ export const startLoginEmailPassword= ( email, password ) => {
         });
     };
 };
+
 // para que funcione tiene que ir el email al incio
 export const startRegistrer = ( email, password, name ) => {
     return ( dispatch ) => {
