@@ -27,7 +27,7 @@ export const AppRouter = () => {
                 dispatch( login( user.uid, user.displayName ) );
             }
 
-            setIsLoggedIn( user?.uid );
+            setIsLoggedIn( !!user?.uid );
             setCheking( false );
         });
     }, [ dispatch, setCheking, setIsLoggedIn ])
